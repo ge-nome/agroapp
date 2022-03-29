@@ -1,0 +1,31 @@
+
+@font-face {
+    font-family:Inter_R ;
+    src: url(fonts/Inter-Regular.ttf);
+}
+@font-face {
+    font-family:Inter_B ;
+    src: url(fonts/Inter-Bold.ttf);
+}
+*{
+    margin:0;
+    padding:0;
+    font-family: Inter_B;
+}
+.container{
+    margin: auto;
+    width: 100%;
+}
+.logo{
+    width: 90%;
+    /* background-color: 28736D; */
+    margin:auto;
+}
+.first{
+    width: 90%;
+    background-color: 28736D;
+    margin:auto;
+}
+.date{
+    font-size:0.75em;
+}
