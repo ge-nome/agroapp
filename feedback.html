@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>AgroApp</title>
+</head>
+<body>
+    <div class="container">
+        <div class="backbtn" onclick=history.back()><-</div>
+        <div class="cropImage">
+            <img class="img" src="./images/jpeeg.webp" alt="" srcset="">
+        </div>
+        <div class="cropsInfo">
+            <div class="headings">
+                <div class="topic">
+                    <h1 class="head">Feedback</h1>
+                    <div class="form">
+                            <div>
+                                <label for="">What plant is scarce in your community</label> 
+                            </div>
+                            <div>
+                                <input type="text" name="cropname" id="cropname">
+                            </div>
+                            <div class="choose-season">
+                                <div>
+                                    <label for="">What season?</label>
+                                </div>
+                                <div class="input">
+                                    <input type="radio" name="season" id="wet" value="wet"> Wet
+                                </div>
+                                <div class="input">
+                                    <input type="radio" name="season" id="dry" value="dry"> Dry
+                                </div>
+                                <div class="submit">
+                                    <button id="jjj">Submit</button>
+                                </div>
+                            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+    </div>
+    <div class='Footer'>
+        <div class='indBoxes'>
+            <a href="index.html">
+                <div><i class="fa fa-home"></i></div>
+                <div>Home</div>
+            </a>
+        </div>
+        <div class='indBoxes'>
+            <a href="crops.html">
+                <div><i class="fa fa-seedling"></i></div>
+                <div>Crops</div>
+            </a>
+        </div>
+        <div class='indBoxes'>
+            <a href="alerts.html">
+                <div><i class="fa fa-bell"></i></div>
+                <div>Alerts</div>
+            </a>
+        </div>
+        <div class='indBoxes'>
+            <a href="feedback.html">
+                <div><i class="fa-regular fa-comment-dots"></i></i></div>
+                <div>Feedback</div>
+            </a>
+        </div>
+      </div>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBaRY_Ibed5DyW-oac2CgLbR-jutUdo70Q",
+      authDomain: "agroapp-34da1.firebaseapp.com",
+      databaseURL: "https://agroapp-34da1-default-rtdb.firebaseio.com",
+      projectId: "agroapp-34da1",
+      storageBucket: "agroapp-34da1.appspot.com",
+      messagingSenderId: "845903808007",
+      appId: "1:845903808007:web:fdb70e6fc3de714753cca2",
+      measurementId: "G-298TS0XV4H"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    import{getDatabase, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"
+    var database = getDatabase()
+    document.getElementById('jjj').addEventListener('click', ()=>{
+    var cropname = document.querySelector('#cropname').value
+      var season = document.querySelector('#wet').value
+      var num = Math.random()*1000
+      var nums = Math.round(num)
+      var position = {
+          lat: 838,
+          long: 22
+      }
+      console.log(nums);
+      
+      set(ref(database, 'feedback/'+ nums),{
+          position:position,
+          cropname:cropname,
+          season : season
+      })
+      .then(()=>{
+          alert('data saved')
+      })
+      .catch((error)=>{
+        alert('unsuccessful')
+      })
+    })
+  </script>
+<script src="sources.js"></script>
+</html>

@@ -1,0 +1,16 @@
+{
+    "name":"Smart Agro",
+    "short_name":"Smart Agro",
+    "start_url":".",
+    "background_color":"white",
+    "theme_color":"#28736D",
+    "display":"standalone",
+    "icons":[
+        {
+            "src":"images/144.png",
+            "sizes":"144x144",
+            "type":"image/png",
+            "purpose": "maskable any"
+        }
+    ]
+}

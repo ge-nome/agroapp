@@ -1,0 +1,101 @@
+
+@font-face {
+    font-family:Inter_R ;
+    src: url(fonts/Inter-Regular.ttf);
+}
+@font-face {
+    font-family:Inter_B ;
+    src: url(fonts/Inter-Bold.ttf);
+}
+*{
+    margin:0;
+    padding:0;
+    border: none;
+    font-family: Inter_B;
+}
+.container{
+    margin: auto;
+    width: 100%;
+}
+.logo{
+    width: 90%;
+    /* background-color: 28736D; */
+    margin:20px auto;
+    font-size:2em;
+}
+.first{
+    width: 85%;
+    background-color: #28736D;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    padding:10px;
+    color:white;
+}
+.date{
+    font-size:0.75em;
+}
+.crops{
+    /* width: 100%; */
+    background-color: #FBFBFB;    ;
+    margin:auto;
+    border-radius: 20px;
+    padding:10px;
+    color:white;
+    box-shadow: -4px 4px 4px 7px rgba(0, 0, 0, 0.1);
+}
+.heading{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+color: black;
+padding:15px 15px 15px 35px;
+
+}
+.plants{
+    width: 85%;
+    background-color: #FAE4DE;
+    margin:0 auto 10px;
+    border-radius: 20px;
+    /* padding:10px; */
+    color:white;
+    height:110px;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    justify-content: space-between;
+    position: relative;
+    
+}
+.plant-name{
+    margin: 0 0 0 20px;
+    color: black;
+    display: grid;
+    align-items: center;
+}
+.plant-image{
+    width: 150px;
+    height: 110px;
+    /* box-shadow: inset 10px -10px 20px 7px #fd3700; */
+    border-radius: 0 20px 20px 0;
+    display: grid;
+    justify-content: end;
+    position: relative;
+    justify-self: end;
+}
+.plant-image img{
+    width:150px;
+    height:110px;
+    object-fit: cover;
+    border-radius: 0 20px 20px 0;
+}
+.blend{
+    width: 170px;
+    height: 110px;
+    box-shadow: inset 30px -10px 20px 10px #FAE4DE;
+    border-radius: 0 20px 20px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-left: 100px;
+}

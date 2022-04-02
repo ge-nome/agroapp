@@ -5,43 +5,149 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="app.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>AgroApp</title>
 </head>
 <body>
     <div class="container">
-        <div class="logo">Logo</div>
+        <div class="logo">
+            <img src="./images/LOGO SMART AGRO.png" alt="">
+            <!-- <img src="./images/LOGO SMART AGRO2.png" alt=""> -->
+        </div>
         <div class="first">
             <div class="date">
-                <h1>Tues, 12th Aug 2022</h1>
+                <h1 id="date">Tues, 12th Aug 2022</h1>
             </div>
             <div class="condition">
                 <div class="left">
-                    <div class="icon"></div>
-                    <div class="w-cond"></div>
-                    <div class="t-of-day"></div>
+                    <div class="icon"><img src="" id="icon"></div>
+                    <div id="long" ></div>
+                    <div id="lat" ></div>
                 </div>
-                <div class="right"></div>
+                <div class="right">
+                    <div class="t-of-day"><h1>
+                       <span id="ll">30</span><sup>o</sup>c
+                    </h1></div>
+                </div>
                 
             </div>
             <div class="moreInfo">
-                <div class="wind"></div>
+                <div class="wind">
+                    <div class="val"><i class="fa-solid fa-wind"></i></div> 
+                    <div class="val"> <span id="wl">33</span> mph</div> 
+                    <div>Wind</div> 
+                </div>
                 <div class="rain">
-                   30o
+                    <div class="val"><i class="fa-solid fa-cloud-rain"></i></div> 
+                    <div class="val"><span id="pl">175</span>Oktas</div> 
+                    <div>Cloud Cover</div> 
                 </div>
             </div>
             <div class="suggestion">
-                <h1>It may be raining, be raining, Be prepared</h1>
+                <p id="sn">It may rain, Be prepared</p>
             </div>
         </div>
         <div class="crops">
-            <div class="heading">Crops that you can plant</div>
-            <div class="plants">
-                <div class="plant-name"></div>
-                <div class="plant-image">
-                    <img src="" alt="" srcset="">
-                </div>
+            <div class="heading">
+                <h1>Crops that you can plant this season</h1>
             </div>
+            <div id="list"></div>
+            <!-- <a href="details.html"><div class="plants">
+                <div class="plant-name">
+                    <div>
+                        <h2>Beans</h2>
+                        <h4>Rainy Season</h4>
+                    </div>
+                </div>
+                <div class="plant-image">
+                    <div class="blend"></div>
+                    <img src="./images/Nigerias-beans-.webp" alt="" srcset="">
+                </div>
+                
+            </div></a>
+            <div class="plants">
+                <div class="plant-name">
+                    <div>
+                        <h2>Banana</h2>
+                        <h4>Rainy Season</h4>
+                    </div>
+                </div>
+                <div class="plant-image">
+                    <div class="blend"></div>
+                    <img src="./images/bananas_green-638194406-59009d635f9b581d59ba1afb.jpg" alt="" srcset="">
+                </div>
+                
+            </div>
+            <div class="plants">
+                <div class="plant-name">
+                    <div>
+                        <h2>Rice</h2>
+                        <h4>Rainy Season</h4>
+                    </div>
+                </div>
+                <div class="plant-image">
+                    <div class="blend"></div>
+                    <img src="./images/parboiled-rice-1200x628-facebook-1200x628.jpg" alt="" srcset="">
+                </div>
+                
+            </div>
+            <div class="plants">
+                <div class="plant-name">
+                    <div>
+                        <h2>Beans</h2>
+                        <h4>Rainy Season</h4>
+                    </div>
+                </div>
+                <div class="plant-image">
+                    <div class="blend"></div>
+                    <img src="./images/Nigerias-beans-.webp" alt="" srcset="">
+                </div>
+                
+            </div> -->
+            <!-- <div class="plants">
+                <div class="plant-name">
+                    <div>
+                        <h2>Beans</h2>
+                        <h4>Rainy Season</h4>
+                    </div>
+                </div>
+                <div class="plant-image">
+                    <div class="blend"></div>
+                    <img src="./images/Nigerias-beans-.webp" alt="" srcset="">
+                </div>
+                
+            </div> -->
         </div>
     </div>
+    <div class='Footer'>
+        <div class='indBoxes'>
+            <a href="./index.html">
+                <div><i class="fa fa-home"></i></div>
+                <div>Home</div>
+            </a>
+        </div>
+        <div class='indBoxes'>
+            <a href="./crops.html">
+                <div><i class="fa fa-seedling"></i></div>
+                <div>Crops</div>
+            </a>
+        </div>
+        <div class='indBoxes'>
+            <a href="./alerts.html">
+                <div><i class="fa fa-bell"></i></div>
+                <div>Alerts</div>
+            </a>
+        </div> 
+        <div class='indBoxes'>
+            <a href="./feedback.html">
+                <div><i class="fa-regular fa-comment-dots"></i></i></div>
+                <div>Feedback</div>
+            </a>
+        </div> 
+    </div>
 </body>
+<!-- <script src="firebase.js"></script> -->
+<script src="index.js"></script>
+<script src="source.js"></script>
 </html>
