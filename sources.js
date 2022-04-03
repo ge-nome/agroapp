@@ -3,6 +3,13 @@ window.onload = ()=>{ const urlpar = window.location.href
     var url = new URL(urlpar);
     var d = url.searchParams.get("name")
     id.push(d)
+    showloader()
+}
+const showloader = () => {
+  document.getElementById('loader').style.display = "grid"
+}
+const hideloader = () => {
+  document.getElementById('loader').style.display = "none"
 }
 fetch("https://agroapp-34da1-default-rtdb.firebaseio.com/crops.json" )
     .then(function(res){
@@ -15,6 +22,7 @@ fetch("https://agroapp-34da1-default-rtdb.firebaseio.com/crops.json" )
       dataArray.push(data[key]);
     }
     // console.log(id)
+    hideloader()
     const jss = id[0]
     // console.log(jss)
 

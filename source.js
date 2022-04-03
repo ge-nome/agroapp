@@ -133,7 +133,7 @@ fetch("https://agroapp-34da1-default-rtdb.firebaseio.com/crops.json" )
   
 date = new Date()
 
-document.getElementById('date').innerHTML = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+document.getElementById('date').innerHTML = "Today";
 
 
 // document.getElementById("demo").innerHTML = name;
