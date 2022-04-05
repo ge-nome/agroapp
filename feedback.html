@@ -29,12 +29,15 @@
                                 <div>
                                     <label for="">What season?</label>
                                 </div>
+                                <div id="select"></div>
                                 <div class="input">
-                                    <input type="radio" name="season" id="wet" value="wet"> Wet
+                                    <input type="checkbox" name="season" id="wet" value="wet"> Rainy
                                 </div>
                                 <div class="input">
-                                    <input type="radio" name="season" id="dry" value="dry"> Dry
+                                    <input type="checkbox" name="season" id="dry" value="dry"> Dry
                                 </div>
+                                <p id="lat" style="display:none"></p>
+                                <p id="long" style="display:none"></p>
                                 <div class="submit">
                                     <button id="jjj">Submit</button>
                                 </div>
@@ -101,29 +104,79 @@
 
     import{getDatabase, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"
     var database = getDatabase()
-    document.getElementById('jjj').addEventListener('click', ()=>{
-    var cropname = document.querySelector('#cropname').value
-      var season = document.querySelector('#wet').value
-      var num = Math.random()*1000
-      var nums = Math.round(num)
-      var position = {
-          lat: 838,
-          long: 22
-      }
-      console.log(nums);
-      
-      set(ref(database, 'feedback/'+ nums),{
-          position:position,
-          cropname:cropname,
-          season : season
-      })
-      .then(()=>{
-          alert('data saved')
-      })
-      .catch((error)=>{
-        alert('unsuccessful')
-      })
-    })
+    const submitBtn =document.getElementById('jjj')
+    var weathCond
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+            document.getElementById('lat').innerText = position.coords.latitude 
+            document.getElementById('long').innerText = position.coords.longitude 
+        })
+    }
+    const cropname = document.querySelector('#cropname')
+    const wet = document.querySelector('#wet')
+    const dry = document.querySelector('#dry')
+
+    
+    submitBtn.addEventListener('click', ()=>{
+        const err = []
+    if (cropname.value == "" || !isNaN(cropname.value)) {
+        cropname.style.border = "1px solid red"
+        err.push(1)
+    }
+    else{
+        cropname.style.border = "none"
+    }
+    if (wet.checked == false && dry.checked == false){
+        document.getElementById('select').innerText = "Kindly choose a season"
+        document.getElementById('select').style.color = "red"
+        err.push(1)
+    }
+    else{
+        if (wet.checked == true && dry.checked == false) {
+            weathCond = 'rainy'
+        } else if (wet.checked == true && dry.checked == false) {
+            weathCond = 'dry'
+        }
+    }
+    const lat = document.getElementById('lat').innerText
+    const long = document.getElementById('long').innerText
+
+        console.log(lat, long);
+        var num = Math.random()*1000
+        var nums = Math.round(num)
+        var position = {
+            lat: parseFloat(lat),
+            long: parseFloat(long)
+        }
+        console.log(nums);
+    console.log(err.length);
+    if (err.length === 0) {  
+        set(ref(database, 'feedback/'+ nums),{
+            position:position,
+            cropname:cropname.value,
+            season : weathCond
+        })
+        .then(()=>{
+            alert('data saved')
+        })
+        .catch((error)=>{
+            alert('unsuccessful')
+        }) 
+    
+    }
+    else{
+        console.log('check errors');
+    }
+    // if () {
+        
+    
+        
+    
+    
+    }
+    
+    )
+        
   </script>
-<script src="sources.js"></script>
+<!-- <script src="sources.js"></script> -->
 </html>

@@ -1,4 +1,58 @@
+const showloader = () => {
+  document.getElementById('loader').style.display = "grid"
+}
+const hideloader = () => {
+  document.getElementById('loader').style.display = "none"
+}
+window.onload = ()=>{
+  showloader()
+}
 
+  //for getting the season
+  fetch("https://agroapp-34da1-default-rtdb.firebaseio.com/seasons.json" )
+      .then(function(res){
+        return res.json();
+      })
+      .then(function(data){
+        //  console.log(data.wet);
+         const season = data;
+        //  console.log(season.dry);
+         var found = season.dry.find(function (element) {
+          return element == mName.toLowerCase();
+      });
+      if (found) {
+        seasons.push('dry')
+      }else{
+        seasons.push('rainy')
+      }
+      
+    })
+      //for getting the crops
+  fetch("https://agroapp-34da1-default-rtdb.firebaseio.com/crops.json" )
+      .then(function(res){
+        return res.json();
+      })
+      .then(function(data){
+        // console.log(data);
+        const cropsArray = []
+        const cropsArray2=[]
+      for(const key in data){
+        cropsArray.push(data[key]);
+      }
+      hideloader()
+      cropsArray.forEach(object =>{
+        if(object.season == seasons){
+            // console.log(object);
+            cropsArray2.push(object)
+            
+        }
+    });
+    createCards(cropsArray2)
+      });
+    
+
+  
+  // document.getElementById("demo").innerHTML = name;
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -52,48 +106,3 @@ var requestOptions = {
   const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   const d = new Date();
   let mName = month[d.getMonth()];
-  //for getting the season
-  fetch("https://agroapp-34da1-default-rtdb.firebaseio.com/seasons.json" )
-      .then(function(res){
-        return res.json();
-      })
-      .then(function(data){
-        //  console.log(data.wet);
-         const season = data;
-        //  console.log(season.dry);
-         var found = season.dry.find(function (element) {
-          return element == mName.toLowerCase();
-      });
-      if (found) {
-        seasons.push('dry')
-      }else{
-        seasons.push('wet')
-      }
-      
-    })
-      //for getting the crops
-  fetch("https://agroapp-34da1-default-rtdb.firebaseio.com/crops.json" )
-      .then(function(res){
-        return res.json();
-      })
-      .then(function(data){
-        // console.log(data);
-        const cropsArray = []
-        const cropsArray2=[]
-      for(const key in data){
-        cropsArray.push(data[key]);
-      }
-      
-      cropsArray.forEach(object =>{
-        if(object.season == seasons){
-            // console.log(object);
-            cropsArray2.push(object)
-            
-        }
-    });
-    createCards(cropsArray2)
-      });
-    
-
-  
-  // document.getElementById("demo").innerHTML = name;

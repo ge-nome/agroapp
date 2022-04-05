@@ -43,6 +43,7 @@ sup{
     height: 100%;
     object-fit: cover;
 }
+
 .first{
     width: 85%;
     background-color: #28736D;
@@ -89,7 +90,7 @@ font-size: 2.5em;}
     justify-self: center;
 }
 .val{
-    font-size: 1.7em;
+    font-size: 1em;
 }
 .suggestion{
     font-size: 1em;
@@ -147,6 +148,12 @@ font-size: 2.5em;}
     color: black;
     display: grid;
     align-items: center;
+}
+.plant-name h1{
+    font-size: 1.2em;
+}
+.plant-name h3{
+    font-size: 1em;
 }
 .plant-name{
     text-transform: Capitalize;
@@ -409,6 +416,9 @@ font-size: 2.5em;}
     margin: auto ;
     padding:10px;
     color:white;
+}
+.list{
+    position: relative;
 }
 
 /* feedback page */
